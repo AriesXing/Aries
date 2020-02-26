@@ -2,8 +2,42 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+		<meta name="format-detection" content="telephone=yes">
+    	<script src="jquery-1.9.1.js"></script>
+    	<title>拍照测试</title>
     </head>
+	<style>
+		.box{width: 320px;height:320px;overflow: hidden}
+	</style>
     <body>
-    	<p>我是p标签</p>
+    	<input type="file" placeholder="点击调用摄像头" name="ipaddress" id="ipaddress" capture='camera' >
+    	
+		<div class="box">
+			<video class="capture"></video>
+		</div>
+		<script>
+		$(function(){
+			var info=navigator.userAgent.toLowerCases();
+			if(info.match(/iPhone\sOS/i)){
+				$("#ipaddress").removeAttribute("capture")　　
+			}
+			if(window.plus) {
+            	plusReady();
+	        } else {
+	            document.addEventListener("plusready", plusReady, false);
+	        }
+
+	        function plusReady(){
+	        	 var camera = plus.camera.getCamera( 1 ); //获取摄像头管理对象
+
+	            // 字符串数组，摄像头支持的拍照分辨率
+	            //PopPositionJSON对象，弹出拍照或摄像界面指示位置
+
+	            //CameraOptions JSON对象，调用摄像头的参数
+			   alert(camera.CameraOptions + camera.CameraOptions.PopPositionJSON)
+			}
+		})	
+		</script>
     </body>
-</html>hello
+</html>
