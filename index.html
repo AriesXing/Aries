@@ -82,6 +82,9 @@
 		position: fixed;
 		top:50%;
 		margin-top:-50%;
+		text-align: center;
+		background-color: rgba(0,0,0,.6);
+		color:#fff;
 	}
 </style>
 <body>
@@ -155,12 +158,13 @@
 		
 	<script>
 		$("#photoBtn").click(function(){
-			
+			$('.tip').show();
 			$(".confirmBtn").click(function(){
-				$('.tip').show();
-				var info=navigator.userAgent.toLowerCases();
+				$('.tip').hide();
+				var info=navigator.userAgent
+				info = info.toLowerCase()
 				if(info.match(/iPhone\sOS/i)){
-					$("#ipaddress").removeAttribute("capture")　　
+					// $("#ipaddress").removeAttribute("capture")　　
 				}
 				if(window.plus) {
 	            	plusReady();
